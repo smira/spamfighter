@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE config>
+<config>
+    <global>
+        <servers>
+            <server id="1">
+                <hostname>xxxxx.netstream.ru</hostname>
+            </server>
+        </servers>
+        <aaaa>
+            <bbb>34</bbb>
+            <ccc type="int">3</ccc>
+        </aaaa>
+        <override>
+            <nooverride>c</nooverride>
+            <doit>A</doit>
+            <nextlevel>1</nextlevel>
+        </override>
+    </global>
+    <local>
+    </local>
+    <development>
+        <override>
+            <doit>B</doit>
+            <nextlevel>2</nextlevel>
+        </override>
+    </development>
+    <testing>
+        <override>
+            <nextlevel>3</nextlevel>
+        </override>
+        <development>
+            <override>
+                <thirdlevel>10</thirdlevel>
+            </override>
+        </development>
+    </testing>
+</config>

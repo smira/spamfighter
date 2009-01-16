@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE config>
+<!-- SpamFighter, (c) 2008 NetStream LLC (http://netstream.ru/, we@netstream.ru) -->
+<!-- $Id$ -->
+<config>
+    <global>
+        <!-- Список продакшн-серверов -->
+        <servers>
+            <server id="1">
+                <hostname>example.ru</hostname>
+            </server>
+        </servers>
+        <!-- Тестовая телнет-консоль в интерпретатор -->
+        <manhole>
+            <port type="int">2000</port>
+            <enabled>no</enabled>
+        </manhole>
+        <!-- API -->
+        <api>
+            <xmlrpc>
+                <enabled>yes</enabled>
+            </xmlrpc>
+            <jsonrpc>
+                <enabled>yes</enabled>
+            </jsonrpc>
+        </api>
+        <!-- Документация -->
+        <docs>
+            <manual>
+                <enabled>yes</enabled>
+                <path>docs/manual/.build/html/</path>
+                <location>manual</location>
+            </manual>
+            <source>
+                <enabled>no</enabled>
+                <path>docs/api/</path>
+                <location>source-docs</location>
+            </source>
+        </docs>
+        <!-- Интерфейс администрирования -->
+        <manage>
+            <interface>
+                <enabled>yes</enabled>
+                <path>control/spamfighter/build/</path>
+                <location>manage</location>
+            </interface>
+            <js_api>
+                <enabled>no</enabled>
+                <path>control/spamfighter/api/</path>
+                <location>js-api</location>
+            </js_api>
+            <debug>
+                <enabled>no</enabled>
+                <path>control/</path>
+                <location>control</location>
+            </debug>
+        </manage>
+        <!-- HTTP -->
+        <http>
+            <enabled>yes</enabled>
+            <port type="int">80</port>
+        </http>
+        <!-- HTTPS -->
+        <https>
+            <enabled>yes</enabled>
+            <port type="int">443</port>
+            <cert>
+                <private_key_file>cert/server.key</private_key_file>
+                <certificate_file>cert/server.cert</certificate_file>
+            </cert>
+        </https>
+        <!-- Плагины -->
+        <plugins>
+            <domain>
+                <!-- Провайдер домена по умолчанию -->
+                <default_provider>DefaultDefaultDomainProvider</default_provider>
+                <!-- Для авторизации на доверии, провайдер домена по умолчанию -->
+                <null_partner_domain_provider>SampleDomainProvider</null_partner_domain_provider>
+            </domain>
+            <partner>
+                <!-- Провайдер механизма авторизации партнеров по умолчанию -->
+                <default_provider>NullPartnerAuthorizerProvider</default_provider>
+            </partner>
+        </plugins>
+        <!-- Хранилища данных -->
+        <storage>
+            <dbm>
+                <path>db/</path>
+            </dbm>
+        </storage>
+        <!-- Модели анализа сообщений -->
+        <model>
+            <aslib>
+                <path>db/aslib/</path>
+            </aslib>
+        </model>
+    </global>
+    <local>
+    </local>
+    <development>
+        <!-- Сигнал включения режима разработчика -->
+        <development />
+        <!-- Включаем телнет-консоль в режиме разработчика -->
+        <manhole>
+            <enabled>yes</enabled>
+        </manhole>
+        <!-- HTTP -->
+        <http>
+            <port type="int">8000</port>
+        </http>
+        <!-- HTTPS -->
+        <https>
+            <port type="int">8001</port>
+        </https>
+        <!-- Интерфейс администрирования -->
+        <manage>
+            <js_api>
+                <enabled>yes</enabled>
+            </js_api>
+            <debug>
+                <enabled>yes</enabled>
+            </debug>
+        </manage>
+        <!-- Документация -->
+        <docs>
+            <source>
+                <enabled>yes</enabled>
+            </source>
+        </docs>
+    </development>
+    <testing>
+        <!-- Плагины -->
+        <plugins>
+            <domain>
+                <!-- Провайдер домена по умолчанию -->
+                <default_provider>DefaultDefaultDomainProvider</default_provider>
+                <!-- Для авторизации на доверии, провайдер домена по умолчанию -->
+                <null_partner_domain_provider>EmptySubDefaultDomainProvider</null_partner_domain_provider>
+            </domain>
+        </plugins>
+        <!-- Хранилища данных -->
+        <storage>
+            <dbm>
+                <path>/tmp/spamfighter/db</path>
+            </dbm>
+        </storage>
+        <!-- Модели анализа сообщений -->
+        <model>
+            <aslib>
+                <path>/tmp/spamfighter/aslib/</path>
+            </aslib>
+        </model>
+    </testing>
+</config>

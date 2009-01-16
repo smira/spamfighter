@@ -1,0 +1,26 @@
+(dp1
+S'test'
+p2
+ccopy_reg
+_reconstructor
+p3
+(ctwisted.plugin
+CachedDropin
+p4
+c__builtin__
+object
+p5
+NtRp6
+(dp7
+S'moduleName'
+p8
+S'spamfighter.plugins.test'
+p9
+sS'description'
+p10
+S'\n\xd0\xa2\xd0\xb5\xd1\x81\xd1\x82\xd1\x8b \xd0\xbd\xd0\xb0 \xd0\xbf\xd0\xbb\xd0\xb0\xd0\xb3\xd0\xb8\xd0\xbd\xd1\x8b.\n'
+p11
+sS'plugins'
+p12
+(lp13
+sbs.
