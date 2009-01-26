@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE config>
 <!-- SpamFighter, Copyright 2008 NetStream LLC (http://netstream.ru/, we@netstream.ru) -->
-<!-- $Id$ -->
 <config>
     <global>
         <!-- Список продакшн-серверов -->
