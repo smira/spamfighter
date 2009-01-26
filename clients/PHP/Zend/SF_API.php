@@ -1,7 +1,7 @@
 <?php
 
 /**
- * SpamFigher, Copyright 2008 NetStream LLC (http://netstream.ru/, we@netstream.ru)
+ * SpamFighter, Copyright 2008 NetStream LLC (http://netstream.ru/, we@netstream.ru)
  *
  * Модуль доступа к API Спамоборца с использованием Zend_XML_RPC.
  *
