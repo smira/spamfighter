@@ -143,7 +143,7 @@ organizationalUnitName		= Organizational Unit Name (eg, section)
 organizationalUnitName_default	= SpamFighter
 
 commonName			= Common Name (eg, YOUR name)
-commonName_default          = spamfighter.ru
+commonName_default          = spam-fighter.ru
 
 commonName_max			= 64
 
