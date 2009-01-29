@@ -1,0 +1,2 @@
+include config.xml COPYING
+include spamfighter/utils/test/test_config.xml
