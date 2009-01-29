@@ -89,9 +89,6 @@
         </storage>
         <!-- Модели анализа сообщений -->
         <model>
-            <aslib>
-                <path>db/aslib/</path>
-            </aslib>
         </model>
     </global>
     <local>
@@ -145,9 +142,6 @@
         </storage>
         <!-- Модели анализа сообщений -->
         <model>
-            <aslib>
-                <path>/tmp/spamfighter/aslib/</path>
-            </aslib>
         </model>
     </testing>
 </config>
