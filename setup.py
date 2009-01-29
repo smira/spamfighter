@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# SpamFighter, (c) 2008 NetStream LLC (http://netstream.ru/, we@netstream.ru)
+# SpamFighter, Copyright 2008, 2009 NetStream LLC (http://netstream.ru/, we@netstream.ru)
 #
 # This file is part of SpamFighter.
 #
