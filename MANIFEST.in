@@ -1,2 +1,2 @@
-include config.xml COPYING
+include config.xml COPYING AUTHORS
 include spamfighter/utils/test/test_config.xml
