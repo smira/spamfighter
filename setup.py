@@ -77,6 +77,7 @@ lightweight browser-based configuration tool, examples, plugin architecture and 
           'spamfighter.txjsonrpc',
             'spamfighter.txjsonrpc.web', 'spamfighter.txjsonrpc.web.test',
             'spamfighter.txjsonrpc.test',
+	  'twisted.plugins',
             ],
      )
 
