@@ -11,7 +11,7 @@
   "let" :
   {
     "APPLICATION"  : "spamfighter",
-    "QOOXDOO_PATH" : "./qooxdoo/framework",
+    "QOOXDOO_PATH" : "./qooxdoo",
     "QOOXDOO_URI"  : "./${QOOXDOO_PATH}",
     "QXTHEME"      : "qx.theme.Classic",
     "API_EXCLUDE"  : ["qx.legacy.*", "qx.*"],
