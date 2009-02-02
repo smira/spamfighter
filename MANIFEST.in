@@ -1,2 +1,11 @@
 include config.xml COPYING AUTHORS
 include spamfighter/utils/test/test_config.xml
+include html/index.html html/favicon.ico
+recursive-include cert/scripts/ *.cnf *.sh
+recursive-include admin/ *.js *.png *.json *.py
+recursive-include docs/manual/ *
+prune admin/build/ 
+prune admin/api/ 
+prune admin/qooxdoo/
+prune docs/manual/.build/
+prune *.swp *~ .gitignore
