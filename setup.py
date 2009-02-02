@@ -20,6 +20,18 @@
 #
 
 from distutils.core import setup
+import os
+import fnmatch
+
+def build_datafiles(source_root, destination_root):
+    result = []
+    ignores = [line.strip() for line in open('.gitignore', 'r').readlines()]
+    for root, dirs, files in os.walk(source_root):
+        filtered_files = filter(lambda file: not any(map(lambda pattern: fnmatch.fnmatch(file, pattern), ignores)), files)
+        result.append((os.path.join(destination_root, os.path.relpath(root, source_root)), 
+                [os.path.join(root, file) for file in filtered_files]))
+
+    return result
 
 setup(name='spamfighter',
       version='0.1.0',
@@ -27,6 +39,10 @@ setup(name='spamfighter',
       author='Andrey Smirnov',
       author_email='me@smira.ru',
       url='http://spam-fighter.ru/',
+      data_files = build_datafiles('admin/build/', 'share/spamfighter/admin') + \
+              build_datafiles('docs/manual/.build/html/', 'share/spamfighter/manual') + \
+              build_datafiles('html/', 'share/spamfighter/public_html') + 
+              [('share/spamfighter/cert/scripts', ['cert/scripts/generateLocal.sh', 'cert/scripts/openssl.cnf'])],
       license='GPLv3',
       long_description="""SpamFighter combines several methods for filtering spam and other unsolicited messages (comments, chat etc.):
  - rule-based filtering
