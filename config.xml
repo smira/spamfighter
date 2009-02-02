@@ -40,17 +40,17 @@
         <manage>
             <interface>
                 <enabled>yes</enabled>
-                <path>control/spamfighter/build/</path>
+                <path>admin/build/</path>
                 <location>manage</location>
             </interface>
             <js_api>
                 <enabled>no</enabled>
-                <path>control/spamfighter/api/</path>
+                <path>admin/api/</path>
                 <location>js-api</location>
             </js_api>
             <debug>
                 <enabled>no</enabled>
-                <path>control/</path>
+                <path>admin/</path>
                 <location>control</location>
             </debug>
         </manage>
