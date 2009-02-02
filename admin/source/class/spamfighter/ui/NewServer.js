@@ -20,7 +20,7 @@ qx.Class.define("spamfighter.ui.NewServer",
 
     construct : function() 
         {
-                this.base(arguments, "Новое соединение", "icon/22/actions/document-new.png");
+                this.base(arguments, "Новое соединение", "spamfighter/icon/22/actions/document-new.png");
                 this.set({'showMaximize' : false, 'showMinimize' : false});
 
                 var layout = new qx.ui.layout.Grid(10, 10);
@@ -41,11 +41,11 @@ qx.Class.define("spamfighter.ui.NewServer",
                 var buttonPane = new qx.ui.container.Composite(paneLayout).set({paddingTop: 8});
                 this.add(buttonPane, {row:2, column: 0, colSpan: 2});
 
-                this.__okButton = new qx.ui.form.Button("OK", "icon/22/actions/dialog-apply.png");
+                this.__okButton = new qx.ui.form.Button("OK", "spamfighter/icon/22/actions/dialog-apply.png");
                 this.__okButton.addState("default");
                 buttonPane.add(this.__okButton);
 
-                var cancelButton = new qx.ui.form.Button("Отмена", "icon/22/actions/dialog-cancel.png");
+                var cancelButton = new qx.ui.form.Button("Отмена", "spamfighter/icon/22/actions/dialog-cancel.png");
                 buttonPane.add(cancelButton);
 
                 this.__okButton.addListener("execute", this._OkClicked, this);

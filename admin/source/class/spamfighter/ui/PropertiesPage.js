@@ -16,7 +16,7 @@ qx.Class.define("spamfighter.ui.PropertiesPage",
 
     construct :             function()
                             {
-                                this.base(arguments, "Свойства", "icon/16/apps/utilities-archiver.png");
+                                this.base(arguments, "Свойства", "spamfighter/icon/16/apps/utilities-archiver.png");
                                 this.setLayout(new qx.ui.layout.HBox(4));
 
                                 this.__propsList = new qx.ui.form.List();

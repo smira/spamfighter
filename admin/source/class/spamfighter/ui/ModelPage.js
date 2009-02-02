@@ -16,7 +16,7 @@ qx.Class.define("spamfighter.ui.ModelPage",
 
     construct :             function()
                             {
-                                this.base(arguments, "Модели", "icon/16/apps/utilities-dictionary.png");
+                                this.base(arguments, "Модели", "spamfighter/icon/16/apps/utilities-dictionary.png");
                                 this.setLayout(new qx.ui.layout.Grid(4,4).setColumnFlex(2, 2).setRowFlex(5, 2));
 
                                 this.add(new qx.ui.basic.Label("Модель:"), { row : 0, column : 0 });
@@ -26,7 +26,7 @@ qx.Class.define("spamfighter.ui.ModelPage",
                                 this.__modelMessageWidget = new spamfighter.ui.MessageWidget("Сообщение:")
                                 this.add(this.__modelMessageWidget, { row : 1, column : 0, colSpan : 3});
 
-                                this.__modelTrainButton = new qx.ui.form.Button("Обучить как", "icon/22/actions/list-add.png");
+                                this.__modelTrainButton = new qx.ui.form.Button("Обучить как", "spamfighter/icon/22/actions/list-add.png");
                                 this.add(this.__modelTrainButton, { row : 2, column : 0});
 
                                 this.__modelTrainKind = new qx.ui.form.SelectBox();
@@ -34,7 +34,7 @@ qx.Class.define("spamfighter.ui.ModelPage",
                                 this.__modelTrainKind.add(new qx.ui.form.ListItem("Плохо", null, "bad"));
                                 this.add(this.__modelTrainKind, { row : 2, column : 1});
                                 
-                                this.__modelClassifyButton = new qx.ui.form.Button("Классифицировать", "icon/22/actions/system-run.png");
+                                this.__modelClassifyButton = new qx.ui.form.Button("Классифицировать", "spamfighter/icon/22/actions/system-run.png");
                                 this.add(this.__modelClassifyButton, { row : 3, column : 0});
 
                                 this.add(new qx.ui.basic.Label("Лог действий:"), { row : 4, column : 0 });

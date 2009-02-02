@@ -57,8 +57,8 @@ qx.Class.define("spamfighter.Application",
       mainContainer.add(desktopContainer, { 'flex' : 1 });
 
       var part1 = new qx.ui.toolbar.Part();
-      var newButton = new qx.ui.toolbar.Button("Новое подключение", "icon/22/actions/document-new.png");
-      var aboutButton = new qx.ui.toolbar.Button("О программе", "icon/22/actions/help-faq.png");
+      var newButton = new qx.ui.toolbar.Button("Новое подключение", "spamfighter/icon/22/actions/document-new.png");
+      var aboutButton = new qx.ui.toolbar.Button("О программе", "spamfighter/icon/22/actions/help-faq.png");
       part1.add(newButton);
       part1.add(new qx.ui.toolbar.Separator());
       part1.add(aboutButton);

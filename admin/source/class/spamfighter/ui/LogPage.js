@@ -16,7 +16,7 @@ qx.Class.define("spamfighter.ui.LogPage",
 
     construct :             function()
                             {
-                                this.base(arguments, "Лог", "icon/16/apps/internet-blog.png");
+                                this.base(arguments, "Лог", "spamfighter/icon/16/apps/internet-blog.png");
                                 this.setLayout(new qx.ui.layout.Grid(4,4).setColumnFlex(2, 2).setRowFlex(1, 2));
 
                                 this.add(new qx.ui.basic.Label("Лог:"), { row : 0, column : 0 });
@@ -59,10 +59,10 @@ qx.Class.define("spamfighter.ui.LogPage",
 
                                 __retrainBox.add(new qx.ui.basic.Label("как"));
 
-                                this.__trainAsGood = new qx.ui.form.Button("хорошо", "icon/22/emotes/face-smile.png");
+                                this.__trainAsGood = new qx.ui.form.Button("хорошо", "spamfighter/icon/22/emotes/face-smile.png");
                                 __retrainBox.add(this.__trainAsGood);
 
-                               this.__trainAsBad = new qx.ui.form.Button("плохо", "icon/22/emotes/face-sad.png");
+                               this.__trainAsBad = new qx.ui.form.Button("плохо", "spamfighter/icon/22/emotes/face-sad.png");
                                 __retrainBox.add(this.__trainAsBad);
 
                                 this.add(__retrainBox, { row : 2, column : 1, colSpan : 2});

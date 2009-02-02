@@ -16,7 +16,7 @@ qx.Class.define("spamfighter.ui.FirewallPage",
 
     construct :             function()
                             {
-                                this.base(arguments, "Firewall", "icon/16/apps/utilities-help.png");
+                                this.base(arguments, "Firewall", "spamfighter/icon/16/apps/utilities-help.png");
                                 this.setLayout(new qx.ui.layout.VBox(4));
 
                                 var firewallGroupBox = new qx.ui.groupbox.GroupBox("Firewall:");
@@ -27,10 +27,10 @@ qx.Class.define("spamfighter.ui.FirewallPage",
 
                                 var firewallButtonsPane = new qx.ui.container.Composite(new qx.ui.layout.VBox(4));
 
-                                this.__firewallCheckButton = new qx.ui.form.Button("Проверить", "icon/22/actions/edit-undo.png");
+                                this.__firewallCheckButton = new qx.ui.form.Button("Проверить", "spamfighter/icon/22/actions/edit-undo.png");
                                 firewallButtonsPane.add(this.__firewallCheckButton);
 
-                                this.__firewallSetButton = new qx.ui.form.Button("Установить", "icon/22/actions/dialog-apply.png");
+                                this.__firewallSetButton = new qx.ui.form.Button("Установить", "spamfighter/icon/22/actions/dialog-apply.png");
                                 firewallButtonsPane.add(this.__firewallSetButton);
 
                                 firewallGroupBox.add(firewallButtonsPane);
@@ -41,8 +41,8 @@ qx.Class.define("spamfighter.ui.FirewallPage",
                                 this.add(this.__firewallMessageWidget, { flex : 1 });
 
                                 var firewallTestBox = new qx.ui.container.Composite(new qx.ui.layout.HBox(4));
-                                var firewallTestButton = new qx.ui.form.Button("Тест", "icon/22/actions/media-playback-start.png");
-                                this.__firewallTestResult = new qx.ui.basic.Atom("", "icon/16/apps/preferences-locale.png").set( { rich : true } );
+                                var firewallTestButton = new qx.ui.form.Button("Тест", "spamfighter/icon/22/actions/media-playback-start.png");
+                                this.__firewallTestResult = new qx.ui.basic.Atom("", "spamfighter/icon/16/apps/preferences-locale.png").set( { rich : true } );
                                 firewallTestBox.add(firewallTestButton);
                                 firewallTestBox.add(this.__firewallTestResult);
 

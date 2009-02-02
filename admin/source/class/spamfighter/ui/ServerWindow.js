@@ -26,7 +26,7 @@ qx.Class.define("spamfighter.ui.ServerWindow",
                                 this.__rootDomain = this.__server.getRootDomain();
                                 this.__currentDomain = this.__rootDomain;
 
-                                this.base(arguments, "Сервер: " + this.__server.getUrl(), "icon/22/apps/utilities-terminal.png");
+                                this.base(arguments, "Сервер: " + this.__server.getUrl(), "spamfighter/icon/22/apps/utilities-terminal.png");
                                 this.set({'showMinimize' : false, 'padding' : 4});
                                 this.setLayout(new qx.ui.layout.VBox(4));
 
@@ -43,7 +43,7 @@ qx.Class.define("spamfighter.ui.ServerWindow",
                                 this.__domainTree = new qx.ui.tree.Tree();
                                 leftBox.add(this.__domainTree, { flex : 1 });
 
-                                var refreshButton = new qx.ui.form.Button("Обновить", "icon/22/actions/view-refresh.png");
+                                var refreshButton = new qx.ui.form.Button("Обновить", "spamfighter/icon/22/actions/view-refresh.png");
                                 leftBox.add(refreshButton);
                                    
                                 this.__propertiesPage = new spamfighter.ui.PropertiesPage();
