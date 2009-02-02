@@ -1,0 +1,21 @@
+{
+  "name"    : "spamfighter",
+
+  "include" :
+  [
+    {
+      "path" : "./qooxdoo/tool/data/config/application.json"
+    }
+  ],
+
+  "let" :
+  {
+    "APPLICATION"  : "spamfighter",
+    "QOOXDOO_PATH" : "./qooxdoo",
+    "QOOXDOO_URI"  : "./${QOOXDOO_PATH}",
+    "QXTHEME"      : "qx.theme.Classic",
+    "API_EXCLUDE"  : ["qx.legacy.*", "qx.*"],
+    "LOCALES"      : [ "en", "ru" ],
+    "ROOT"         : "."
+  }
+}

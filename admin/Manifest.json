@@ -1,0 +1,34 @@
+{
+  "info" : 
+  {
+    "name" : "СпамоБорец",
+
+    "summary" : "Управление серверов Спамоборца",
+    "description" : "Управление сервером Спамоборца.",
+    
+    "homepage" : "http://spam-fighter.ru/",
+
+    "license" : "GPLv3",
+    "authors" : 
+    [
+      {
+        "name" : "Andrey Smirnov",
+        "email" : "me@smira.ru"
+      }
+    ],
+
+    "version" : "trunk",
+    "qooxdoo-versions": ["0.8"]
+  },
+  
+  "provides" : 
+  {
+    "namespace"   : "spamfighter",
+    "encoding"    : "utf-8",
+    "class"       : "source/class",
+    "resource"    : "source/resource",
+    "translation" : "source/translation",
+    "type"        : "application"
+  }
+}
+
