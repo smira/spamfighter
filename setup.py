@@ -24,11 +24,28 @@ import os
 import fnmatch
 
 def build_datafiles(source_root, destination_root):
+    def relpath(path, start = os.curdir):
+        """Return a relative version of a path"""
+
+        if not path:
+            raise ValueError("no path specified")
+
+        start_list = os.path.abspath(start).split(os.sep)
+        path_list = os.path.abspath(path).split(os.sep)
+
+        # Work out how much of the filepath is shared by start and path.
+        i = len(os.path.commonprefix([start_list, path_list]))
+
+        rel_list = [os.pardir] * (len(start_list)-i) + path_list[i:]
+        if not rel_list:
+            return os.curdir
+        return os.path.join(*rel_list)
+
     result = []
     ignores = [line.strip() for line in open('.gitignore', 'r').readlines()]
     for root, dirs, files in os.walk(source_root):
         filtered_files = filter(lambda file: not any(map(lambda pattern: fnmatch.fnmatch(file, pattern), ignores)), files)
-        result.append((os.path.join(destination_root, os.path.relpath(root, source_root)), 
+        result.append((os.path.join(destination_root, relpath(root, source_root)), 
                 [os.path.join(root, file) for file in filtered_files]))
 
     return result
