@@ -1,4 +1,4 @@
-include config.xml COPYING AUTHORS
+include config.xml COPYING AUTHORS .gitignore
 include spamfighter/utils/test/test_config.xml
 include html/index.html html/favicon.ico
 recursive-include cert/scripts/ *.cnf *.sh
