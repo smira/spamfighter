@@ -103,6 +103,7 @@ import re
 import socket
 import sys
 import exceptions
+import os
 
 space = re.compile("\S")
 
@@ -122,7 +123,7 @@ def parse_file(filename):
     @rtype : C{Cfg}
     @return : экземпляр Cfg c настройками
     """
-    try:    
+    try:   
         dom = parse(filename)
     except xml.parsers.expat.ExpatError:
         raise ParseException(sys.exc_info()[1], filename)
@@ -130,6 +131,7 @@ def parse_file(filename):
 
 def _parse_dom(dom):
     global space
+    global _filename
     dict = Cfg()
     for elem in dom.childNodes:
         if isinstance(elem, xml.dom.minidom.Text):
@@ -142,12 +144,23 @@ def _parse_dom(dom):
             if elem.hasAttribute('type'):
                 value = _get_class_by_name(elem.getAttribute('type'))(value)
 
-            if elem.hasAttribute('id'):
-                if not dict.has_key(elem.tagName):
-                    dict[elem.tagName] = Cfg()
-                dict[elem.tagName][elem.getAttribute('id')] =  value
+            if elem.tagName == 'include':
+                filename = _parse_dom(elem)
+                if type(filename) != type(""):
+                    raise ValueError, value
+                if not os.path.isabs(filename):
+                    filename = os.path.normpath(os.path.join(os.path.dirname(_filename), filename))
+                subdom = parse(filename)
+                subdom = subdom.childNodes[0]
+                subconf = _parse_dom(subdom)
+                _deep_merge(dict, subconf)
             else:
-                dict[elem.tagName] = value
+                if elem.hasAttribute('id'):
+                    if not dict.has_key(elem.tagName):
+                        dict[elem.tagName] = Cfg()
+                    dict[elem.tagName][elem.getAttribute('id')] =  value
+                else:
+                    dict[elem.tagName] = value
    
     if len(dom.childNodes) == 0:
         return ''
@@ -188,7 +201,6 @@ def _deep_merge(old, new):
     return old
 
 def _get_path():
-    import os
     return os.getcwd()
 
 def load(filename = _get_path()+'/config.xml'):
@@ -208,6 +220,9 @@ def _load_file(filename):
     """
     Загружаем указанный файл и возвращаем его в качестве конфигурационного.
     """
+    global _filename
+    _filename = filename
+
     dom = parse(filename)
 
     _global = _parse_dom(dom.getElementsByTagName('global')[0])
