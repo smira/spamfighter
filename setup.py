@@ -60,7 +60,8 @@ setup(name='spamfighter',
               build_datafiles('docs/manual/.build/html/', 'share/spamfighter/manual') + \
               build_datafiles('html/', 'share/spamfighter/public_html') + 
               build_datafiles('docs/api/', 'share/spamfighter/apidocs') + 
-              [('share/spamfighter/cert/scripts', ['cert/scripts/generateLocal.sh', 'cert/scripts/openssl.cnf'])],
+              [('share/spamfighter/cert/scripts', ['cert/scripts/generateLocal.sh', 'cert/scripts/openssl.cnf'])] +
+              [('share/spamfighter', ['config.xml'])],
       license='GPLv3',
       long_description="""SpamFighter combines several methods for filtering spam and other unsolicited messages (comments, chat etc.):
  - rule-based filtering
