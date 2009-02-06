@@ -19,7 +19,7 @@
 # along with SpamFighter.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-from distutils.core import setup
+from setuptools import setup
 import os
 import fnmatch
 
@@ -50,12 +50,19 @@ def build_datafiles(source_root, destination_root):
 
     return result
 
+install_requires = ['Twisted>=8.0.0','pyparsing>=1.5.1','pyOpenSSL>=0.8']
+
+import sys
+if sys.version_info[:2] <= (2,4):
+    install_requires += ['simplejson>=2.0']
+
 setup(name='spamfighter',
       version='0.1.0',
       description='Web-service fighting spam and other unsolicited messages',
       author='Andrey Smirnov',
       author_email='me@smira.ru',
       url='http://spam-fighter.ru/',
+      install_requires=install_requires,
       data_files = build_datafiles('admin/build/', 'share/spamfighter/admin') + \
               build_datafiles('docs/manual/.build/html/', 'share/spamfighter/manual') + \
               build_datafiles('html/', 'share/spamfighter/public_html') + 

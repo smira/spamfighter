@@ -24,20 +24,20 @@ all: unittest
 
 docs: manual apidocs
 
-clean: clean-admin clean-manual clean-apidocs
+clean: clean-jsadmin clean-manual clean-apidocs
 
-dist: clean manual apidocs admin package
+dist: clean manual apidocs jsadmin package
 
 unittest:
 	$(TRIAL) spamfighter
 
-admin:
+jsadmin:
 	cd admin/ && ./generate.py build
 
-debug-admin:
+debug-jsadmin:
 	cd admin/ && ./generate.py source
 
-clean-admin:
+clean-jsadmin:
 	cd admin/ && ./generate.py clean
 
 apidocs:
@@ -58,3 +58,4 @@ package:
 	./setup.py clean
 	./setup.py sdist
 	./setup.py bdist_dumb
+	./setup.py bdist_egg

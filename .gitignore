@@ -7,3 +7,4 @@ dist/
 MANIFEST
 twistd.pid
 docs/api/
+spamfighter.egg-info/
