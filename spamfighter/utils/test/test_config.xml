@@ -18,6 +18,7 @@
         </override>
     </global>
     <local>
+        <include>test_override.xml</include>
     </local>
     <development>
         <override>

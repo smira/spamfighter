@@ -45,3 +45,5 @@ class ConfigTestCase(unittest.TestCase):
         self.assertEquals("3", config.override.nextlevel)
 
         self.assertEquals("10", config.override.thirdlevel)
+
+        self.assertEquals("A", config.included)
