@@ -150,9 +150,7 @@ def _parse_dom(dom):
                     raise ValueError, value
                 if not os.path.isabs(filename):
                     filename = os.path.normpath(os.path.join(os.path.dirname(_filename), filename))
-                subdom = parse(filename)
-                subdom = subdom.childNodes[0]
-                subconf = _parse_dom(subdom)
+                subconf = _load_file(filename)
                 _deep_merge(dict, subconf)
             else:
                 if elem.hasAttribute('id'):
