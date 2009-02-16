@@ -5,6 +5,9 @@
 
 # Вариант с CA: http://sial.org/howto/openssl/ca/
 
-openssl genrsa 1024 -config openssl.cnf > ../server.key
-openssl req -new -x509 -nodes -sha1 -days 365 -key ../server.key -config openssl.cnf > ../server.cert
+DESTDIR=${1:-..}
+BASEDIR=`dirname "$0"`
+
+openssl genrsa 1024 -config "$BASEDIR/openssl.cnf" > "$DESTDIR/server.key"
+openssl req -new -x509 -nodes -sha1 -days 365 -key "$DESTDIR/server.key" -config "$BASEDIR/openssl.cnf" > "$DESTDIR/server.cert"
 
