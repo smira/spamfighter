@@ -32,7 +32,7 @@ unittest:
 	$(TRIAL) spamfighter
 
 jsadmin:
-	cd admin/ && ./generate.py build
+	cd admin/ && ./generate.py build && ./generate.py api
 
 debug-jsadmin:
 	cd admin/ && ./generate.py source

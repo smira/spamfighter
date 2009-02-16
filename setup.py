@@ -64,6 +64,7 @@ setup(name='spamfighter',
       url='http://spam-fighter.ru/',
       install_requires=install_requires,
       data_files = build_datafiles('admin/build/', 'share/spamfighter/admin') + \
+              build_datafiles('admin/api/', 'share/spamfighter/jsdocs') + \
               build_datafiles('docs/manual/.build/html/', 'share/spamfighter/manual') + \
               build_datafiles('html/', 'share/spamfighter/public_html') + 
               build_datafiles('docs/api/', 'share/spamfighter/apidocs') + 
