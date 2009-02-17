@@ -232,9 +232,9 @@ def _load_file(filename):
     except IndexError:
         pass
     
+    _developer = os.path.exists('.svn') or os.path.exists('.git')
     try:
         if _config.has_key('servers') and _config.servers.has_key('server'):
-            _developer = True
             for server in _config.servers.server.values():
                 if server['hostname'] == socket.gethostname():
                     _config = _deep_merge(_config, server)
