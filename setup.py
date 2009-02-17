@@ -57,7 +57,7 @@ if sys.version_info[:2] <= (2,4):
     install_requires += ['simplejson>=2.0']
 
 setup(name='spamfighter',
-      version='0.1.0',
+      version='0.1.1',
       description='Web-service fighting spam and other unsolicited messages',
       author='Andrey Smirnov',
       author_email='me@smira.ru',
@@ -68,8 +68,14 @@ setup(name='spamfighter',
               build_datafiles('docs/manual/.build/html/', 'share/spamfighter/manual') + \
               build_datafiles('html/', 'share/spamfighter/public_html') + 
               build_datafiles('docs/api/', 'share/spamfighter/apidocs') + 
+              build_datafiles('clients/', 'share/spamfighter/clients') + 
               [('share/spamfighter/cert/scripts', ['cert/scripts/generateLocal.sh', 'cert/scripts/openssl.cnf'])] +
               [('share/spamfighter', ['config.xml'])],
+      entry_points = {
+        'console_scripts': [
+            'spamfighter-create = spamfighter.scripts.create:main',
+                           ],
+                     },
       license='GPLv3',
       long_description="""SpamFighter combines several methods for filtering spam and other unsolicited messages (comments, chat etc.):
  - rule-based filtering
@@ -113,6 +119,7 @@ lightweight browser-based configuration tool, examples, plugin architecture and 
             'spamfighter.plugins.test',
           'spamfighter.rules', 
             'spamfighter.rules.test',
+          'spamfighter.scripts', 
           'spamfighter.test',
             'spamfighter.test.plugins',
           'spamfighter.utils', 
