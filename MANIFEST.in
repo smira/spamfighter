@@ -1,10 +1,11 @@
-include config.xml COPYING AUTHORS .gitignore
+include config.xml COPYING AUTHORS .gitignore README
 include spamfighter/utils/test/test_config.xml
 include spamfighter/utils/test/test_override.xml
 include html/index.html html/favicon.ico
 recursive-include cert/scripts/ *.cnf *.sh
 recursive-include admin/ *.js *.png *.json *.py
 recursive-include docs/manual/ *
+recursive-include clients/ *
 prune admin/build/ 
 prune admin/api/ 
 prune admin/qooxdoo/
