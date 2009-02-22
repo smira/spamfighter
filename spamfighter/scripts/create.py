@@ -31,18 +31,36 @@ from optparse import OptionParser
 
 from spamfighter.utils import terminal
 
+def guess_prefix():
+    prefix = sys.prefix
+
+    try:
+        from pkg_resources import Requirement, resource_filename, DistributionNotFound
+
+        try:
+            resource_prefix = resource_filename(Requirement.parse("spamfighter"), ".")
+            if os.path.exists(os.path.join(resource_prefix, "share/spamfighter")):
+                prefix = resource_prefix
+        except DistributionNotFound:
+            pass
+
+    except ImportError:
+        pass 
+
+    return prefix
+
 def main():
     usage = "usage: %prog [options] dir"
     parser = OptionParser(usage)
     parser.add_option("--prefix", dest="prefix", 
-            default=sys.prefix, help="prefix of SpamFighter install "
+            default=guess_prefix(), help="prefix of SpamFighter install "
                                      "[default: %default]")
     parser.add_option("--no-https", dest="https", action="store_false", 
-            default=True, help="disable HTTPS (no certificate generation, no OpenSSL)")
+            default=True, help="disable HTTPS (no certificate generation, no OpenSSL) [default: %default]")
     parser.add_option("--http-port", dest="http_port", action="store", type="int",
             default=8000, help="Port for incoming HTTP connections")
     parser.add_option("--https-port", dest="https_port", action="store", type="int", 
-            default=8001, help="Port for incoming HTTPS connections")
+            default=8001, help="Port for incoming HTTPS connections [default: %default]")
     parser.add_option("--uid", dest="uid", action="store", type="string",
             default=None, help="The uid to run as")
     parser.add_option("--gid", dest="gid", action="store", type="string",
