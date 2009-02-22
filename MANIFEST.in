@@ -1,13 +1,16 @@
-include config.xml COPYING AUTHORS .gitignore README
+include config.xml COPYING AUTHORS .gitignore README Makefile
 include spamfighter/utils/test/test_config.xml
 include spamfighter/utils/test/test_override.xml
 include html/index.html html/favicon.ico
 recursive-include cert/scripts/ *.cnf *.sh
-recursive-include admin/ *.js *.png *.json *.py
+recursive-include admin/ *.js *.png *.json *.py *.txt *.po
 recursive-include docs/manual/ *
+recursive-include docs/api/ *
 recursive-include clients/ *
-prune admin/build/ 
-prune admin/api/ 
 prune admin/qooxdoo/
-prune docs/manual/.build/
-prune *.swp *~ .gitignore
+prune admin/cache/
+prune admin/source/script/
+prune docs/manual/.build/doctrees/
+prune *.swp 
+prune *~ 
+prune */.gitignore
