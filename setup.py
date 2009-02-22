@@ -50,19 +50,22 @@ def build_datafiles(source_root, destination_root):
 
     return result
 
-install_requires = ['Twisted>=8.0.0','pyparsing>=1.5.1','pyOpenSSL>=0.8']
+install_requires = ['Twisted>=8.0.0','pyparsing>=1.5.1','pyOpenSSL>=0.8', 'netaddr>=0.5']
 
 import sys
 if sys.version_info[:2] <= (2,4):
     install_requires += ['simplejson>=2.0']
 
 setup(name='spamfighter',
-      version='0.1.1',
+      version='0.1.2',
       description='Web-service fighting spam and other unsolicited messages',
       author='Andrey Smirnov',
       author_email='me@smira.ru',
       url='http://spam-fighter.ru/',
+      keywords='spam api',
+      download_url='http://spam-fighter.ru/rus/Downloads',
       install_requires=install_requires,
+      zip_safe=False,
       data_files = build_datafiles('admin/build/', 'share/spamfighter/admin') + \
               build_datafiles('admin/api/', 'share/spamfighter/jsdocs') + \
               build_datafiles('docs/manual/.build/html/', 'share/spamfighter/manual') + \
@@ -76,7 +79,7 @@ setup(name='spamfighter',
             'spamfighter-create = spamfighter.scripts.create:main',
                            ],
                      },
-      license='GPLv3',
+      license='GNU GPL',
       long_description="""SpamFighter combines several methods for filtering spam and other unsolicited messages (comments, chat etc.):
  - rule-based filtering
  - trained models
@@ -127,7 +130,7 @@ lightweight browser-based configuration tool, examples, plugin architecture and 
           'spamfighter.txjsonrpc',
             'spamfighter.txjsonrpc.web', 'spamfighter.txjsonrpc.web.test',
             'spamfighter.txjsonrpc.test',
-	  'twisted.plugins',
+          'twisted.plugins',
             ],
      )
 
