@@ -37,3 +37,7 @@
     docs/api/
 
 Подробнее об установке pydoctor и Sphinx см. раздел :ref:`dev-environment`.
+
+Документация по исходному JavaScript-коду генерируется с помощью qooxdoo::
+
+   cd admin/ && ./generate.py api
