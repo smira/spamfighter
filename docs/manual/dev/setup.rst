@@ -20,21 +20,38 @@
 
 .. _dev-environment:
 
-Подготовка окружения
-====================
+Установка и подготовка
+======================
 
-Кроме действий, описанных в разделе :ref:`user-setup`, необходимо дополнительно установить:
+Установка
+---------
 
+Для запуска и работы со СпамоБорцем потребуются:
+
+* python 2.5 или 2.6 (http://www.python.org/)
+* Twisted Framework 8.0+ (http://twistedmatrix.com/)
+* pyparsing (http://pyparsing.wikispaces.com/)
+* simplejson (для python 2.5) (http://code.google.com/p/simplejson/)
+* pyOpenSSL (http://pyopenssl.sourceforge.net/)
 * qooxdoo 0.8 или trunk (http://qooxdoo.org/)
 * Sphinx (http://sphinx.pocoo.org/)
 * pydoctor (http://codespeak.net/~mwh/pydoctor/)
+
+После установки python все модули можно поставить с помощью программы easy_install или другого
+механизма, специфичного для конкретной ОС::
+
+  easy_install Twisted
+  easy_install pyparsing
+  easy_install simplejson (для python2.5)
+  easy_install pyOpenSSL
+  easy_install netaddr
 
 Установка Sphinx::
 
     easy_install Sphinx
 
-Установка pydoctor описана на его странице: http://codespeak.net/~mwh/pydoctor/. Дополнительно к pydoctor
-потребуется Divmod Nevow (http://divmod.org/trac/wiki/DivmodNevow), для python 2.5 достаточно сделать::
+Установка pydoctor описана на `его странице <http://codespeak.net/~mwh/pydoctor/>`_. Дополнительно к pydoctor
+потребуется `Divmod Nevow <http://divmod.org/trac/wiki/DivmodNevow>`_, для python 2.5 достаточно сделать::
 
     easy_install Nevow
 
@@ -45,17 +62,48 @@
     python setup.py build
     sudo python setup.py install
 
+
 Исходники СпамоБорца необходимо получить из репозитория::
 
-    svn co svn://svn.netstream.ru/projects/antispam/trunk/ spamfighter
+    git clone http://spam-fighter.ru/git/ spamfighter.git
 
-.. index:: unit-тест
+После скачивания qooxdoo SDK необходимо сделать symlink c каталога, куда был распакован архив, в каталог `admin/qooxdoo`::
+
+    ln -s /var/qooxdoo-0.8-sdk spamfighter.git/admin/qooxdoo
+
 
 Запуск unit-тестов
-^^^^^^^^^^^^^^^^^^
+------------------
 
-Для запуска unit-тестов необходимо запустить скрипт run.tests.sh из корневого каталога СпамоБорца::
+Для запуска unit-тестов из корневого каталога СпамоБорца::
 
-    ./run.tests.sh
+    make
 
 При правильной настройке все тесты должны отрабатывать без ошибок.
+
+Создание документации
+---------------------
+
+Для создания руководства из исходников с помощью Sphinx::
+
+  make manual
+
+Построение документации по исходному коду с помощью pydoctor::
+  
+  make apidocs
+
+Построение системы управления на qooxdoo
+----------------------------------------
+
+Отладочный вариант системы управления::
+
+  make debug-jsadmin
+
+Другие параметры Makefile см. в :ref:`специальном разделе <dev-make>`.
+
+Запуск сервера
+--------------
+
+Находясь в корневом каталоге СпамоБорца можно запустить его, выполнив::
+
+  twistd -n spamfighter
