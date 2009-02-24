@@ -23,4 +23,6 @@
    :maxdepth: 2
 
    setup
+   make
    docs
+
