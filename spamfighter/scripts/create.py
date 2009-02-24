@@ -56,9 +56,9 @@ def main():
             default=guess_prefix(), help="prefix of SpamFighter install "
                                      "[default: %default]")
     parser.add_option("--no-https", dest="https", action="store_false", 
-            default=True, help="disable HTTPS (no certificate generation, no OpenSSL) [default: %default]")
+            default=True, help="disable HTTPS (no certificate generation, no OpenSSL)")
     parser.add_option("--http-port", dest="http_port", action="store", type="int",
-            default=8000, help="Port for incoming HTTP connections")
+            default=8000, help="Port for incoming HTTP connections [default: %default]")
     parser.add_option("--https-port", dest="https_port", action="store", type="int", 
             default=8001, help="Port for incoming HTTPS connections [default: %default]")
     parser.add_option("--uid", dest="uid", action="store", type="string",
@@ -105,6 +105,7 @@ def main():
             'BASE_DIR' : base_dir,
             'PIDFILE' : 'spamfighter.pid',
             'LOGFILE' : 'spamfighter.log',
+            'TWISTD' : os.path.join(sys.prefix, 'bin', 'twistd'),
                     }
 
     user_spec = []
@@ -139,7 +140,7 @@ def main():
         print terminal.render("%(WHITE)s%(BOLD)sPlease, answer questions below:%(NORMAL)s")
 
         print os.path.join(options.prefix, "share/spamfighter/cert/scripts/generateLocal.sh")
-        if subprocess.call([os.path.join(options.prefix, "share/spamfighter/cert/scripts/generateLocal.sh"), os.path.join(base_dir, "cert")]) != 0:
+        if subprocess.call(["/bin/sh", os.path.join(options.prefix, "share/spamfighter/cert/scripts/generateLocal.sh"), os.path.join(base_dir, "cert")]) != 0:
             print terminal.render("%(RED)sFailed to execute certificate generation.%(NORMAL)s")
 
     print terminal.render("%(WHITE)s%(BOLD)sGenerating start scripts...%(NORMAL)s")
@@ -212,7 +213,7 @@ config_template = """<?xml version="1.0" encoding="UTF-8"?>
 start_script_template="""#!/bin/sh
 
 cd "%(BASE_DIR)s"
-twistd %(USER_SPEC)s --pidfile="%(PIDFILE)s" --logfile="%(LOGFILE)s" --reactor=poll spamfighter
+%(TWISTD)s %(USER_SPEC)s --pidfile="%(PIDFILE)s" --logfile="%(LOGFILE)s" --reactor=poll spamfighter
 """
 
 stop_script_template="""#!/bin/sh
