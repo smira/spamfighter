@@ -23,37 +23,42 @@
 Установка СпамоБорца
 ====================
 
-Для установки потребуются:
+Возможны несколько вариантов установки:
 
-* python 2.5 или 2.6 (http://www.python.org/)
-* Twisted Framework 8.0+ (http://twistedmatrix.com/)
-* pyparsing (http://pyparsing.wikispaces.com/)
-* simplejson (для python 2.5) (http://code.google.com/p/simplejson/)
-* pyOpenSSL (http://pyopenssl.sourceforge.net/)
+* с помощью средств ОС;
+* из пакета Python с исходном кодом/бинарного пакета;
+* из репозитория.
 
-После установки python все модули можно поставить с помощью программы easy_install или другого
-механизма, специфичного для конкретной ОС::
+С помощью средств ОС
+--------------------
 
-  easy_install Twisted
-  easy_install pyparsing
-  easy_install simplejson (для python2.5)
-  easy_install pyOpenSSL
-  easy_install netaddr
+В данный момент пакет СпамоБорца еще не включен ни в одну ОС.
 
-Если планируется использовать HTTPS (а он включен в СпамоБорце по умолчанию), необходимо сгенерировать
-сертификаты сервера. Для этого необходимо::
+Установка из пакета
+-------------------
 
-  make https-cert
+Предварительно необходимо установить `python <http://www.python.org/>`_ 2.5 или 2.6, а также 
+`setuptools <http://peak.telecommunity.com/DevCenter/setuptools>`_. Обычно
+эти пакеты уже установлены в ОС.
 
-Установка на Gentoo Linux
--------------------------
+Установка из пакета выполняется просто::
 
-.. code-block:: sh
+  easy_install spamfighter
 
-  emerge dev-python/twisted dev-python/twisted-conch dev-python/twisted-web
-  emerge simplejson
-  easy_install pyparsing
-  easy_install netaddr
+Данная команда автоматически обращается к `Python Package Index (PyPI) <http://pypi.python.org/>`_, находит последнюю
+версию СпамоБорца, скачивает и устанавливает её. Также можно скачать пакет СпамоБорца
+с сайта http://spam-fighter.ru/ и установить его с помощью easy_install (egg) или
+просто распаковав архив (binary distribution). 
 
-Pyparsing в Portage слишком старой версии, поэтому приходится его ставить через easy_install,
-netaddr же отсутствует в Portage.
+Еще одним способом установки является скачивание исходного пакета Python (source distribution) и 
+установка вручную::
+
+  python setup.py build
+  python setup.py install
+
+Далее см. :ref:`running`.
+
+Установка из репозитория
+------------------------
+
+Установка из репозитория подробно описана в :ref:`руководстве разработчика <dev-environment>`.
