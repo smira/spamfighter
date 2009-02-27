@@ -57,7 +57,7 @@ if sys.version_info[:2] <= (2,4):
     install_requires += ['simplejson>=2.0']
 
 setup(name='spamfighter',
-      version='0.1.6',
+      version='0.2.0',
       description='Web-service fighting spam and other unsolicited messages',
       author='Andrey Smirnov',
       author_email='me@smira.ru',
